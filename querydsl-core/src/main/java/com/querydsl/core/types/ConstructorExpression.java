@@ -49,7 +49,7 @@ public class ConstructorExpression<T> extends FactoryExpressionBase<T> {
 
     private static final long serialVersionUID = -602747921848073175L;
 
-    public static <D> ConstructorExpression<D> create(Class<D> type, Expression<?>... args) {
+    public static <D> ConstructorExpression<D> create(Class<? extends D> type, Expression<?>... args) {
         Class<?>[] paramTypes = new Class[args.length];
         for (int i = 0; i < paramTypes.length; i++) {
             paramTypes[i] = args[i].getType();
@@ -66,11 +66,11 @@ public class ConstructorExpression<T> extends FactoryExpressionBase<T> {
 
     private transient Iterable<Function<Object[], Object[]>> transformers;
 
-    protected ConstructorExpression(Class<T> type, Class<?>[] paramTypes, Expression<?>... args) {
+    protected ConstructorExpression(Class<? extends T> type, Class<?>[] paramTypes, Expression<?>... args) {
         this(type, paramTypes, ImmutableList.copyOf(args));
     }
 
-    protected ConstructorExpression(Class<T> type, Class<?>[] paramTypes, ImmutableList<Expression<?>> args) {
+    protected ConstructorExpression(Class<? extends T> type, Class<?>[] paramTypes, ImmutableList<Expression<?>> args) {
         super(type);
         this.parameterTypes = getConstructorParameters(type, paramTypes).clone();
         this.args = args;
