@@ -14,7 +14,7 @@
 package com.querydsl.apt;
 
 /**
- * VisitorConfig defines the entity type specific visiting configuration
+ * {@link VisitorConfig} defines the entity type specific visiting configuration
  *
  * @author tiwe
  *

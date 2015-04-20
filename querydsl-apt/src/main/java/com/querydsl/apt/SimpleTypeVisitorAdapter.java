@@ -17,11 +17,12 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.List;
 
+import javax.lang.model.type.IntersectionType;
 import javax.lang.model.type.TypeMirror;
 import javax.lang.model.util.SimpleTypeVisitor6;
 
 /**
- * Converts Java 8 IntersectionType instances into their first bound when visiting
+ * Converts Java 8 {@link IntersectionType} instances into their first bound when visiting
  *
  * @param <R>
  * @param <P>
